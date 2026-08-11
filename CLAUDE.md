@@ -1,8 +1,8 @@
 # CLAUDE.md - AI Assistant Guide for Tortolero
 
-**Last Updated:** 2026-01-18
+**Last Updated:** 2026-08-11
 **Repository:** rento27/Tortolero
-**Status:** 🆕 New Repository - Initial Setup Phase
+**Status:** 📚 Documentación RESCOLDO en `docs/`
 
 ---
 
@@ -25,10 +25,14 @@
 **Tortolero**
 
 ### Current Status
-This repository is in its **initial setup phase**. As of the last update, the repository contains no source code or project files. This document serves as the foundational guide for AI assistants working on this project.
+This repository alberga la **consolidación documental de RESCOLDO** (proyecto de marca,
+storytelling, web de reservas y experiencia espacial de RT STUDIO LAB). La documentación
+vive en [`docs/`](./docs/README.md). Las piezas de producción (videos, audios, Keynote,
+renders) y los archivos maestros crudos viven en el respaldo del SSD, fuera de este repo.
 
 ### Purpose
-_To be defined as the project develops_
+Servir como canon documental navegable de RESCOLDO: diagnóstico integral, bitácora de
+decisiones y lista priorizada de pendientes. Ver `docs/README.md`.
 
 ### Technology Stack
 _To be defined - will be updated when project structure is established_
@@ -41,7 +45,12 @@ _To be defined - will be updated when project structure is established_
 ```
 Tortolero/
 ├── .git/              # Git repository metadata
-└── CLAUDE.md          # This file - AI assistant documentation
+├── CLAUDE.md          # This file - AI assistant documentation
+└── docs/              # Canon documental de RESCOLDO
+    ├── README.md                                   # Índice + principio de gobernanza
+    ├── RESCOLDO_diagnostico_integral_2026-08-11.md # Diagnóstico integral (A–J)
+    ├── DECISIONES.md                               # Bitácora de decisiones
+    └── PENDIENTES.md                               # Pendientes priorizados
 ```
 
 ### What's Missing (To Be Added)
