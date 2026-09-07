@@ -69,7 +69,10 @@ grep -n 'set -o onecmd' "$S"
 
 2. Si vuelve a pasar, mirar que archivo de arranque deja esa opcion activada
    (`~/.zshrc`, `~/.zprofile`, `~/.zshenv`) y quitar de ahi el `set -t` / `set -o onecmd`.
-3. Si el script no encuentra nada, arrancar en modo depuracion y repetir un comando trivial;
+3. Reinstalar Claude Code **no** arregla ninguna de estas causas: el instalador reemplaza el
+   binario, pero no toca `~/.zshrc` ni el contenido de `~/.claude/`. Solo sirve si el binario
+   en si esta danado, y aun asi hay que borrar los snapshots a mano.
+4. Si el script no encuentra nada, arrancar en modo depuracion y repetir un comando trivial;
    ahi si aparece el error real de la herramienta:
 
    ```bash
