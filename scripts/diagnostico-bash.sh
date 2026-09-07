@@ -15,6 +15,24 @@ SALIDA="$HOME/diagnostico-bash-claude.txt"
 log() { printf '%s\n' "$*" | tee -a "$SALIDA"; }
 sec() { log ""; log "=== $* ==="; }
 
+# Ejecuta un comando con limite de tiempo. macOS no trae 'timeout'.
+# Devuelve 124 si hubo que matarlo: ese es justo el caso de un arranque colgado.
+correr_limitado() {
+  local limite=$1 comando=$2 archivo=$3
+  ( eval "$comando" ) > "$archivo" 2>&1 &
+  local pid=$! esperado=0
+  while kill -0 "$pid" 2>/dev/null; do
+    if [ "$esperado" -ge "$limite" ]; then
+      kill -9 "$pid" 2>/dev/null
+      wait "$pid" 2>/dev/null
+      return 124
+    fi
+    sleep 1
+    esperado=$((esperado + 1))
+  done
+  wait "$pid"
+}
+
 log "Diagnostico Bash / Claude Code - $(date '+%Y-%m-%d %H:%M:%S')"
 
 sec "1. Sistema"
@@ -30,27 +48,32 @@ else
   log "PROBLEMA: SHELL no apunta a un binario ejecutable. Claude Code lanza los comandos con este shell."
 fi
 
+sec "3. Arranque del shell (login)"
 # Claude Code arranca un shell de login para cada comando. Si un archivo de arranque
 # cuelga o falla, todos los comandos fallan aunque el comando en si sea trivial.
-sec "3. Arranque del shell (login)"
-INICIO=$(date +%s)
-if SALIDA_LOGIN=$("${SHELL:-/bin/zsh}" -l -c 'echo __OK__' 2>&1); then
-  FIN=$(date +%s)
-  log "Duracion: $((FIN - INICIO))s"
-  if printf '%s' "$SALIDA_LOGIN" | grep -q '__OK__'; then
+# Que la Terminal funcione NO descarta esto: la Terminal abre un shell interactivo,
+# y 'zsh -l -c' no lo es.
+ARCHIVO_LOGIN=$(mktemp)
+if correr_limitado 15 '"${SHELL:-/bin/zsh}" -l -c "echo __OK__"' "$ARCHIVO_LOGIN"; then
+  if grep -q '__OK__' "$ARCHIVO_LOGIN"; then
     log "El shell de login responde correctamente."
   else
     log "PROBLEMA: el shell de login no devolvio la marca esperada."
   fi
-  RUIDO=$(printf '%s' "$SALIDA_LOGIN" | grep -v '__OK__' || true)
+  RUIDO=$(grep -v '__OK__' "$ARCHIVO_LOGIN" || true)
   if [ -n "$RUIDO" ]; then
     log "AVISO: los archivos de arranque imprimen texto extra (puede romper el parseo de salida):"
     printf '%s\n' "$RUIDO" | sed 's/^/    /' | tee -a "$SALIDA"
   fi
+elif [ $? -eq 124 ]; then
+  log "PROBLEMA: el shell de login se colgo mas de 15s. Esta es la causa mas probable de que"
+  log "       'pwd' no devuelva nada: algo en ~/.zshrc o ~/.zprofile espera entrada o se bloquea"
+  log "       cuando el shell no es interactivo. Bisecta comentando ese archivo por mitades."
 else
   log "PROBLEMA: el shell de login sale con error. Revisa ~/.zshrc, ~/.zprofile, ~/.zshenv."
-  printf '%s\n' "$SALIDA_LOGIN" | sed 's/^/    /' | tee -a "$SALIDA"
+  sed 's/^/    /' "$ARCHIVO_LOGIN" | tee -a "$SALIDA"
 fi
+rm -f "$ARCHIVO_LOGIN"
 
 for f in "$HOME/.zshenv" "$HOME/.zprofile" "$HOME/.zshrc" "$HOME/.bash_profile" "$HOME/.bashrc"; do
   [ -f "$f" ] && log "existe: $f ($(wc -l < "$f" | tr -d ' ') lineas)"
@@ -87,6 +110,57 @@ if [ -d "$DIR_SNAP" ]; then
   fi
 else
   log "No hay carpeta de snapshots."
+fi
+
+sec "6b. Opciones peligrosas dentro del snapshot"
+# El snapshot restaura las opciones del shell con 'set -o'. Algunas hacen que el shell
+# termine antes de llegar al comando, sin error y con codigo 0: el resultado es una
+# salida vacia, que es exactamente el sintoma de "pwd no devuelve nada".
+if [ -n "${ULTIMO:-}" ] && [ -f "$DIR_SNAP/${ULTIMO:-}" ]; then
+  for opcion in onecmd noexec errexit; do
+    grep -qE "^[[:space:]]*set -o ${opcion}\b" "$DIR_SNAP/$ULTIMO" || continue
+    case "$opcion" in
+      onecmd)
+        log "PROBLEMA: el snapshot activa 'set -o onecmd'. El shell termina despues de UN solo"
+        log "       comando, asi que todo lo que va detras del snapshot se salta en silencio"
+        log "       y devuelve codigo 0. Esta es la causa exacta de la salida vacia." ;;
+      noexec)
+        log "PROBLEMA: el snapshot activa 'set -o noexec'. El shell lee los comandos pero no los ejecuta." ;;
+      errexit)
+        log "PROBLEMA: el snapshot activa 'set -o errexit'. Cualquier comando que devuelva codigo"
+        log "       distinto de cero corta la ejecucion antes de imprimir nada." ;;
+    esac
+    log "       Solucion: rm -rf ~/.claude/shell-snapshots y reinicia Claude Code."
+  done
+fi
+
+sec "6c. Reproduccion de como Claude Code lanza un comando"
+# Se prueba de las dos formas en que se puede invocar el shell, porque una puede
+# fallar y la otra no segun que opcion venga activada en el snapshot.
+if [ -n "${ULTIMO:-}" ] && [ -f "$DIR_SNAP/${ULTIMO:-}" ]; then
+  ORDEN=$(printf 'source %q >/dev/null 2>&1\npwd\n' "$DIR_SNAP/$ULTIMO")
+
+  ARCHIVO_REPRO=$(mktemp)
+  COMANDO_REPRO=$ORDEN
+  if correr_limitado 15 '"${SHELL:-/bin/zsh}" -c "$COMANDO_REPRO"' "$ARCHIVO_REPRO" && [ -s "$ARCHIVO_REPRO" ]; then
+    log "Como cadena (-c): devuelve salida. OK."
+  else
+    log "PROBLEMA: como cadena (-c), 'pwd' tras cargar el snapshot no devuelve nada."
+    log "       Solucion: rm -rf ~/.claude/shell-snapshots y reinicia Claude Code."
+  fi
+
+  GUION=$(mktemp)
+  printf '%s' "$ORDEN" > "$GUION"
+  : > "$ARCHIVO_REPRO"
+  if correr_limitado 15 '"${SHELL:-/bin/zsh}" "$GUION"' "$ARCHIVO_REPRO" && [ -s "$ARCHIVO_REPRO" ]; then
+    log "Como guion en archivo: devuelve salida. OK."
+  else
+    log "PROBLEMA: como guion en archivo, 'pwd' tras cargar el snapshot no devuelve nada."
+    log "       Solucion: rm -rf ~/.claude/shell-snapshots y reinicia Claude Code."
+  fi
+  rm -f "$ARCHIVO_REPRO" "$GUION"
+else
+  log "Sin snapshot que reproducir."
 fi
 
 sec "7. Hooks y permisos en settings"
@@ -151,6 +225,12 @@ if command -v sandbox-exec >/dev/null 2>&1; then
 else
   log "sandbox-exec no esta disponible."
 fi
+
+sec "10. Siguiente paso si nada de lo anterior falla"
+log "Ejecuta Claude Code en modo depuracion y repite un comando trivial:"
+log "    claude --debug"
+log "El error real de la herramienta Bash aparece ahi; sin eso no se puede ver desde dentro."
+log "Dentro de la sesion, /doctor tambien revisa la instalacion."
 
 sec "Resumen"
 if grep -q '^PROBLEMA' "$SALIDA"; then
