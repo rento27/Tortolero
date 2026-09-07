@@ -20,6 +20,10 @@ Comprueba, en este orden:
 2. Que `$SHELL` apunte a un binario ejecutable.
 3. Que el shell de login arranque sin errores y sin imprimir texto extra
    (Claude Code lanza un shell de login por comando; un `~/.zshrc` roto rompe todos).
+3b. `compinit`: cuantas veces se llama y si se llama sin `-u`/`-C`; arranque de un shell
+   interactivo con limite de tiempo, y `compaudit` para listar los directorios inseguros.
+   Ademas avisa si los archivos de arranque tienen credenciales en texto plano
+   (solo cuenta cuantas y con que permisos, nunca imprime el valor).
 4. `PATH` y presencia de los binarios basicos.
 5. Version de `claude` y de `node`.
 6. Sintaxis del snapshot de shell mas reciente en `~/.claude/shell-snapshots`
@@ -71,3 +75,26 @@ grep -n 'set -o onecmd' "$S"
    ```bash
    claude --debug
    ```
+
+### Sobre `compinit`
+
+`compinit` revisa los directorios de funciones de completado y, si alguno tiene permisos de
+escritura para grupo u otros, pregunta:
+
+```
+Ignore insecure directories and continue [y] or abort [n]?
+```
+
+En un shell sin terminal —como el que Claude Code lanza para cada comando— esa pregunta no
+se puede contestar: el shell se queda esperando o muere sin escribir nada. El sintoma es el
+mismo que el de `onecmd`, salida vacia, pero la causa y el arreglo son otros.
+
+Arreglo, cualquiera de los dos:
+
+```bash
+compaudit | xargs chmod go-w   # corrige los permisos de raiz
+```
+
+o dejar una sola llamada en `.zshrc` y cambiarla por `compinit -u`, que se salta la revision.
+Llamar a `compinit` mas de una vez en el mismo archivo multiplica la probabilidad de toparse
+con la pregunta.

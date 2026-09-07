@@ -79,6 +79,65 @@ for f in "$HOME/.zshenv" "$HOME/.zprofile" "$HOME/.zshrc" "$HOME/.bash_profile" 
   [ -f "$f" ] && log "existe: $f ($(wc -l < "$f" | tr -d ' ') lineas)"
 done
 
+sec "3b. compinit y credenciales en los archivos de arranque"
+# compinit revisa directorios inseguros y, si encuentra alguno, pregunta
+# "Ignore insecure directories and continue [y] or abort [n]?".
+# En un shell sin terminal esa pregunta no se puede contestar: el shell se cuelga
+# o muere sin escribir nada, que es el mismo sintoma de salida vacia.
+for f in "$HOME/.zshenv" "$HOME/.zprofile" "$HOME/.zshrc"; do
+  [ -f "$f" ] || continue
+  LINEAS=$(grep -n '^[[:space:]]*compinit' "$f" 2>/dev/null || true)
+  if [ -n "$LINEAS" ]; then
+    CUANTAS=$(printf '%s\n' "$LINEAS" | wc -l | tr -d ' ')
+    log "$f: $CUANTAS llamada(s) a compinit"
+    printf '%s\n' "$LINEAS" | sed 's/^/    linea /' | tee -a "$SALIDA"
+    if [ "$CUANTAS" -gt 1 ]; then
+      log "AVISO: hay mas de una llamada a compinit. Deja solo una."
+    fi
+    if ! printf '%s\n' "$LINEAS" | grep -qE 'compinit[[:space:]]+-[a-zA-Z]*[uC]'; then
+      log "AVISO: compinit se llama sin -u ni -C, asi que hace la revision que puede preguntar."
+    fi
+  fi
+done
+
+# Prueba directa: si esto se cuelga, compinit (u otra cosa) esta esperando respuesta.
+if command -v zsh >/dev/null 2>&1; then
+  ARCHIVO_INT=$(mktemp)
+  if correr_limitado 20 'zsh -i -c "echo VIVO" < /dev/null' "$ARCHIVO_INT" && grep -q VIVO "$ARCHIVO_INT"; then
+    log "El shell interactivo arranca y responde."
+  else
+    if [ -s "$ARCHIVO_INT" ] && ! grep -q VIVO "$ARCHIVO_INT"; then
+      sed 's/^/    /' "$ARCHIVO_INT" | tee -a "$SALIDA"
+    fi
+    log "PROBLEMA: el shell interactivo no imprime la marca o se cuelga."
+    log "       Causa tipica: compinit esperando respuesta a la pregunta de directorios inseguros."
+    log "       Arreglo: deja una sola llamada y cambiala por 'compinit -u',"
+    log "       o corrige los permisos con: compaudit | xargs chmod go-w"
+  fi
+  rm -f "$ARCHIVO_INT"
+
+  ARCHIVO_AUDIT=$(mktemp)
+  if correr_limitado 20 'zsh -c "autoload -Uz compaudit; compaudit" < /dev/null' "$ARCHIVO_AUDIT"; then
+    if [ -s "$ARCHIVO_AUDIT" ]; then
+      log "PROBLEMA: compaudit reporta directorios inseguros. Son los que disparan la pregunta:"
+      sed 's/^/    /' "$ARCHIVO_AUDIT" | tee -a "$SALIDA"
+      log "       Arreglo: compaudit | xargs chmod go-w"
+    else
+      log "compaudit no reporta directorios inseguros."
+    fi
+  fi
+  rm -f "$ARCHIVO_AUDIT"
+fi
+
+# Credenciales en texto plano: se informa la cantidad y los permisos, nunca el valor.
+for f in "$HOME/.zshenv" "$HOME/.zprofile" "$HOME/.zshrc" "$HOME/.bash_profile" "$HOME/.bashrc"; do
+  [ -f "$f" ] || continue
+  CLAVES=$(grep -cE '^[[:space:]]*(export[[:space:]]+)?[A-Z0-9_]*(API|TOKEN|KEY|SECRET|PASSWORD)[A-Z0-9_]*=' "$f" 2>/dev/null || true)
+  [ "${CLAVES:-0}" -gt 0 ] || continue
+  log "AVISO: $f contiene $CLAVES asignacion(es) que parecen credenciales (permisos $(ls -l "$f" | cut -d' ' -f1))."
+  log "       Conviene moverlas a un archivo aparte con chmod 600 y cargarlo desde ahi."
+done
+
 sec "4. PATH"
 log "Entradas de PATH:"
 printf '%s\n' "${PATH:-}" | tr ':' '\n' | sed 's/^/    /' | tee -a "$SALIDA"
