@@ -2,7 +2,7 @@
 
 **Last Updated:** 2026-11-03
 **Repository:** rento27/Tortolero
-**Status:** 📚 Canon documental RESCOLDO en `docs/` (fuente: Documento Maestro 31-ago-2026)
+**Status:** 📚 Espejo Git del canon RESCOLDO en `docs/` (fuente: RESCOLDO_MAESTRO_EL_FINAL en SSD; canon congelado 7-sep-2026)
 
 ---
 
@@ -46,14 +46,22 @@ _To be defined - will be updated when project structure is established_
 Tortolero/
 ├── .git/              # Git repository metadata
 ├── CLAUDE.md          # This file - AI assistant documentation
-└── docs/              # Canon documental de RESCOLDO
-    ├── README.md                                   # Índice + principio de gobernanza
-    ├── RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md     # Fuente única vigente
-    ├── DECISIONES.md                               # Bitácora de decisiones
-    ├── PENDIENTES.md                               # Pendientes priorizados (estado 31-ago)
-    ├── TZOME_direccion.md                          # Decisión abierta: TZÓME animación vs. IA
-    └── fuentes/                                    # 17 documentos fuente + maestro HTML + LEEME
+└── docs/              # Espejo Git de la capa de autoridad de RESCOLDO
+    ├── README.md                       # Índice + regla de autoridad + candados
+    ├── QUE_CAMBIO_DESDE_AGOSTO.md       # Comparación agosto vs. canon vigente
+    ├── canon/                          # Capa de autoridad (verbatim desde el SSD)
+    │   ├── MAPA_RESCOLDO_MAESTRO.md             # Mapa de la casa física (SSD)
+    │   ├── 00_PRECEDENCIA_Y_ESTADO_ACTUAL.md
+    │   ├── ACTA_CONGELAMIENTO_CANON_NARRATIVO_2026-09-07.md
+    │   ├── 00_LEER_PRIMERO_CANON_NARRATIVO.md
+    │   ├── CANON_ESTADO_ACTUAL.md              # G01–G22
+    │   ├── DECISIONES_RENE_REGISTRO.md
+    │   └── DECISIONES_CIERRE_2026-10-24.md
+    └── historico/                      # Material de agosto (superado)
 ```
+
+La casa física completa de RESCOLDO vive en el SSD JOCHIS_SSD, en `RESCOLDO_MAESTRO_EL_FINAL`
+(se accede por Desktop Commander). El repo guarda solo la capa de autoridad en texto.
 
 ### What's Missing (To Be Added)
 - [ ] Project configuration files (package.json, requirements.txt, etc.)
