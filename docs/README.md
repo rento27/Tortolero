@@ -8,7 +8,7 @@ Arquitectura: **UMBRAL** (la casa que diseña experiencias) · **RESCOLDO** (la 
 
 **[`RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md`](./RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md)** es la
 fuente vigente. Reemplaza a todos los diagnósticos anteriores: si algo de agosto lo contradice,
-manda el maestro. Lo sustentan los 17 documentos de [`fuentes/`](./fuentes/).
+manda el maestro. Lo sustentan 17 documentos fuente (listados en su sección 7).
 
 ## Índice
 
@@ -18,7 +18,11 @@ manda el maestro. Lo sustentan los 17 documentos de [`fuentes/`](./fuentes/).
 | [`DECISIONES.md`](./DECISIONES.md) | Bitácora de decisiones, con fecha y estado (Ratificada / Propuesta). |
 | [`PENDIENTES.md`](./PENDIENTES.md) | Lo que falta, al estado 31-ago; los cuatro bloqueos duros, lo legal y lo congelado para temporada 01. |
 | [`TZOME_direccion.md`](./TZOME_direccion.md) | Decisión abierta sobre TZÓME: animación determinista vs. ventanas de IA en vivo (no está en el canon todavía). |
-| [`fuentes/`](./fuentes/) | Los 17 documentos de trabajo que sustentan el maestro, verbatim, más el maestro en HTML y el LEEME del paquete. El diagnóstico fundacional del 11-ago vive aquí como `fuentes/diagnostico-integral-rescoldo-2026-08-11.md` (histórico). |
+| [`RESCOLDO_diagnostico_integral_2026-08-11.md`](./RESCOLDO_diagnostico_integral_2026-08-11.md) | Diagnóstico fundacional (A–J), **histórico**. Superado por el maestro; se conserva como referencia. |
+
+> **Pendiente de archivo:** los otros 16 documentos fuente del paquete (`fuentes/`) se
+> agregarán al repo cuando se vuelva a subir `RESCOLDO_PAQUETE_20260831.zip` a la sesión; el
+> upload anterior se perdió al reiniciarse el entorno. Su lista está en la sección 7 del maestro.
 
 ## Principio de gobernanza
 

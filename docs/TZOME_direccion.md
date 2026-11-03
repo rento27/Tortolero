@@ -46,7 +46,8 @@ a escuchar cuando el guion lo marca, y TZÓME puede hacerles preguntas. La alter
 - TZÓME **no es Colimotl**, ni deidad, ni chamán, ni sacerdote, ni vocero de una comunidad
   originaria. Nunca gigante ni sobrenatural; sin plumas, penacho ni vestuario indígena histórico.
 - El **nombre** no tiene fuente documentada: declararlo invención contemporánea sin pretensión
-  lingüística (ver `fuentes/addendum-chats-origen-rescoldo-2026-08-12.md`, secciones 3 y 6.3).
+  lingüística (origen en los chats: "en teoría es náhuatl", sin fuente; recomendación: declararlo
+  invención contemporánea de René y separarlo de cualquier figura histórica).
 - **Separar TZÓME de COLIMOTL** en la música antes de publicar nada.
 
 ## Relación con el calendario
