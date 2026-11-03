@@ -1,31 +1,35 @@
 # Documentación RESCOLDO
 
-Canon documental del proyecto **RESCOLDO** — marca, storytelling, web de reservas y
-experiencia espacial. Producción de RT STUDIO LAB.
+Canon documental del proyecto **RESCOLDO** — experiencia gastronómica inmersiva.
+Arquitectura: **UMBRAL** (la casa que diseña experiencias) · **RESCOLDO** (la obra, temporada 01)
+· **La Sal Playa** (sede de esta temporada).
+
+## Fuente única
+
+**[`RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md`](./RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md)** es la
+fuente vigente. Reemplaza a todos los diagnósticos anteriores: si algo de agosto lo contradice,
+manda el maestro. Lo sustentan los 17 documentos de [`fuentes/`](./fuentes/).
 
 ## Índice
 
 | Documento | Qué es |
 |---|---|
-| [`RESCOLDO_diagnostico_integral_2026-08-11.md`](./RESCOLDO_diagnostico_integral_2026-08-11.md) | Diagnóstico integral (A–J): estado real por bloque, lo que ya está listo, lo que falta priorizado, 14 problemas detectados, web de reservas, marca/logo, nombre de sede, storytelling, mapping y recomendación final. **Documento de referencia.** |
+| [`RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md`](./RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md) | El estado real: lo cerrado, lo que falta (4 bloqueos + 5 capas), el paso a paso semana por semana hasta la primera función, y las puertas 0–5. |
 | [`DECISIONES.md`](./DECISIONES.md) | Bitácora de decisiones, con fecha y estado (Ratificada / Propuesta). |
-| [`PENDIENTES.md`](./PENDIENTES.md) | Lo que falta, priorizado por nivel (0–4), más lo urgente fuera del plan. |
+| [`PENDIENTES.md`](./PENDIENTES.md) | Lo que falta, al estado 31-ago; los cuatro bloqueos duros, lo legal y lo congelado para temporada 01. |
+| [`TZOME_direccion.md`](./TZOME_direccion.md) | Decisión abierta sobre TZÓME: animación determinista vs. ventanas de IA en vivo (no está en el canon todavía). |
+| [`fuentes/`](./fuentes/) | Los 17 documentos de trabajo que sustentan el maestro, verbatim, más el maestro en HTML y el LEEME del paquete. El diagnóstico fundacional del 11-ago vive aquí como `fuentes/diagnostico-integral-rescoldo-2026-08-11.md` (histórico). |
 
-## Principio de gobernanza (el más importante)
+## Principio de gobernanza
 
-El riesgo de RESCOLDO no es la calidad — la calidad está. El riesgo es producir documentos
-más rápido de lo que se toman decisiones. Por eso, la única regla que hay que sostener:
+> **Cada vez que algo se decide, se borra de `PENDIENTES.md`, se escribe en `DECISIONES.md`
+> con fecha, y no se vuelve a abrir salvo que cambie un hecho.** Y en esta temporada:
+> **no se produce material nuevo** hasta que los cuatro bloqueos duros estén cerrados.
 
-> **Una sola fuente maestra. Cada vez que algo se decide, se borra de `PENDIENTES.md`, se
-> escribe en `DECISIONES.md` con fecha, y no se reabre salvo que cambie un hecho.**
+Las decisiones marcadas **"Propuesta"** son recomendaciones, no canon, hasta que René las ratifique.
 
-Las decisiones marcadas **"Propuesta"** son recomendaciones del diagnóstico; no son canon
-hasta que René las ratifique. No producir contra una propuesta sin ratificar.
+## Nota sobre los archivos de producción
 
-## Nota sobre el análisis de archivos crudos
-
-El diagnóstico se produjo leyendo los documentos maestros, el canon, la marca y el código
-web que viven en el respaldo del SSD (`RESCOLDO_Y_UMBRAL`). Ese material **no está en este
-repositorio**; su análisis se corre en la sesión **local** de Claude Code de la Mac (donde
-el SSD está montado), no en una sesión de nube. Este repo alberga la consolidación
-documental y de gobernanza, no las piezas de producción (videos, audios, Keynote, renders).
+Las piezas pesadas (música, video, modelo 3D, plano, manuales de marca en PDF, El Códice, el
+módulo de operación) viven en el SSD `RESCOLDO_Y_UMBRAL/Canon completo de Rescoldo` (2.0 GB),
+fuera de este repo. Aquí está la consolidación documental y de gobernanza, no la producción.

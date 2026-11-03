@@ -1,8 +1,8 @@
 # CLAUDE.md - AI Assistant Guide for Tortolero
 
-**Last Updated:** 2026-08-11
+**Last Updated:** 2026-11-03
 **Repository:** rento27/Tortolero
-**Status:** 📚 Documentación RESCOLDO en `docs/`
+**Status:** 📚 Canon documental RESCOLDO en `docs/` (fuente: Documento Maestro 31-ago-2026)
 
 ---
 
@@ -48,9 +48,11 @@ Tortolero/
 ├── CLAUDE.md          # This file - AI assistant documentation
 └── docs/              # Canon documental de RESCOLDO
     ├── README.md                                   # Índice + principio de gobernanza
-    ├── RESCOLDO_diagnostico_integral_2026-08-11.md # Diagnóstico integral (A–J)
+    ├── RESCOLDO_DOCUMENTO_MAESTRO_2026-08-31.md     # Fuente única vigente
     ├── DECISIONES.md                               # Bitácora de decisiones
-    └── PENDIENTES.md                               # Pendientes priorizados
+    ├── PENDIENTES.md                               # Pendientes priorizados (estado 31-ago)
+    ├── TZOME_direccion.md                          # Decisión abierta: TZÓME animación vs. IA
+    └── fuentes/                                    # 17 documentos fuente + maestro HTML + LEEME
 ```
 
 ### What's Missing (To Be Added)
