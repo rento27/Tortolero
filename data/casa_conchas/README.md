@@ -5,9 +5,15 @@ Semilla para la base de datos del sistema. Fuentes revisadas el 7-nov-2026.
 | Archivo | Contenido | Fuente |
 |---|---|---|
 | `insumos.csv` | 25 insumos con presentación y costo unitario | `Final_Costeo_La_Casa_de_las_Conchas_2021_Final.xlsx` (jul 2021) |
-| `productos.csv` | 15 productos (concha, tío, galleta, chocolate caliente) con costo y utilidad | mismo archivo |
+| `productos.csv` | Las 6 conchas que se venden, con costo y utilidad | mismo archivo + cálculo de Pie de Limón |
+| `cobertura_pie_de_limon.csv` | Receta y costo de la cobertura de Pie de Limón (rinde 220 g) | Receta de René + costos jul 2021 |
 | `costos_fijos.csv` | Gastos fijos mensuales ($28,183.33) | mismo archivo |
 | `tandas_masa.csv` | 17 tandas de masa de concha por número de piezas | Notas de René (pegadas en el chat) |
+| `niveles_clientes.csv` | Niveles de cliente por frecuencia de compra (Tiburón → Charal) | Escala propia de René y sus hermanos |
+
+**Decisiones (7-nov-2026):** la tienda vende **solo conchas**. Las hojas "Tío", galletas y chocolate caliente del Excel no entran. Para el hackatón se usan los costos de julio 2021; actualizarlos a 2026 queda pendiente.
+
+**Armado de una concha (jul 2021):** 65 g de masa base ($34.78/kg) + 20 g de cobertura = 85 g. Con eso cuadra el costo de la Concha Vainilla ($2.26 + $1.09 = $3.35).
 
 ## Receta base por concha (derivada de `tandas_masa.csv`)
 
@@ -50,5 +56,6 @@ Variantes por cada 5 conchas de 65 g:
 ## Lo que falta
 
 - **Historial de ventas.** No está en ningún Excel, PDF ni Word revisado en Google Drive, la MacBook ni la carpeta `JOCHIS_SSD/iMAC`. Los documentos dicen que el equipo llevaba "control de los pedidos que llegan al día", así que probablemente están en WhatsApp o en libreta.
-- Precios de galletas y chocolate caliente.
-- Costo de la cobertura de Pie de Limón y del empaque.
+- Costo real de la galleta María (se usó un estimado de $60/kg).
+- Costo del empaque (charola, kraft, listón, sello), papel encerado y bolsa.
+- Actualizar todos los costos a precios de 2026.
