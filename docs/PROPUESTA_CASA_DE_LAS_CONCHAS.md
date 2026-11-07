@@ -198,6 +198,29 @@ Detalle de gastos fijos en el Excel: nómina $12,800 mensual, aguinaldo $6,400 a
 
 **Competencia registrada en el Excel:** conchas a $6 y $8.
 
+### Versión más reciente: julio 2021 (usar esta para la semilla)
+
+Fuente: `JOCHIS_SSD/iMAC/ESCRITORIO/La_Casa_De_Las_Conchas/Final_Costeo_La_Casa_de_las_Conchas_2021_Final.xlsx`. Datos limpios en `data/casa_conchas/` (`insumos.csv`, `productos.csv`, `costos_fijos.csv`).
+
+- Costos fijos: $28,183.33 al mes, 20 días, 30 tickets por día, $46.97 por ticket. Costo operativo asignado: **$3.00 por pieza**.
+- Líneas de producto: **Concha** (5 sabores), **Tío** (4 sabores), **Galleta** (5 sabores, sin precio) y **Chocolate caliente Moctezuma** (sin precio).
+
+| Producto | Precio | Costo total | Utilidad | Lectura |
+|---|---|---|---|---|
+| Concha Vainilla | $10 | $6.35 | 26% | Sana |
+| Concha Chocolate | $10 | $6.48 | 25% | Sana |
+| Concha Abuelita | $12 | $7.65 | 26% | Sana |
+| Concha Mazapán | $10 | $7.40 | 14% | Margen bajo |
+| **Concha Oreo** | $10 | $8.40 | **3%** | Casi no deja ganancia |
+| Tío Mazapán | $10 | $5.89 | 32% | La de mejor margen |
+| Tío Vainilla | $10 | $6.67 | 23% | Sana |
+| Tío Chocolate | $10 | $6.80 | 21% | Sana |
+| **Tío Oreo** | $10 | $9.68 | **−12%** | Se vende con pérdida |
+
+### Historial de ventas
+
+Se revisaron los 18 Excel de La Casa de las Conchas en el SSD (`JOCHIS_SSD/iMAC`) y los de Google Drive. **Ninguno contiene registro de ventas** (pedidos, tickets o ventas diarias). La auto-evaluación de la consultoría de junio 2021 dice que sí existen "registro de ventas" e "históricos de ventas", así que deben estar en otro lugar (WhatsApp, Facebook, libreta o la iMac). Sin esos datos, la matriz estrella/vaca/enigma/perro arranca con **datos de demostración** y se recalcula sola con las ventas reales que registre el sistema.
+
 ### Inconsistencias a revisar antes de cargar los datos
 - Oreo y Abuelita aparecen con CVU de $2.61, pero sus coberturas son las más caras ($51.30 y $58.57 / kg). El cálculo correcto debería dar un CVU mayor que el de vainilla. El sistema recalculará el CVU desde la receta.
 - Pie de limón, Rey Amargo Naranja y papel para hornear no tienen costo.
