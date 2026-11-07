@@ -13,15 +13,14 @@
 | Plan de mercado "La Casa de las Conchas" (UTeM, nov 2020) | Google Drive | Producto, sabores, paquetes, empaque, mercado de Manzanillo |
 | "La Casa de las Conchas — Desarrollo de imagen" | Google Drive | Slogan, color, logo, promociones, servicio al cliente |
 | LaSal OS (`lasal-os-saas-evergent`) | MacBook `~/Documents/02_PROYECTOS_CODIGO/Activos/Dev/lasal/` (iCloud) | Código base: Next.js 16 + Supabase + Vercel AI SDK |
-| `COSTOS_LASAL.xlsx` (actualizado 25-ene-2026) | Google Drive | Costos reales de insumos y proveedores de Manzanillo |
-| `LIBRO DE COSTOS LA SAL FINAL.xlsx` | Google Drive | Recetario costeado y estructura de clasificación de menú |
+| `Plantilla Costeo del menu 2021_final.xlsx` (mar 2021) | Google Drive | **Excel de La Casa de las Conchas**: costos fijos, insumos, sub-recetas, costo y utilidad por concha |
 | Documento maestro LaSal (ene 2026) | MacBook | Reglas de negocio: VIP, descuentos, autorizaciones, reportes |
 | Documentación de pey | https://docs.pey.mx | API de CoDi: QR, push, links de pago, webhooks |
 
 ### Datos del negocio
 
 - **Producto:** conchas gourmet de 45 g con porción idéntica.
-- **Sabores:** Vainilla, Chocolate, Mazapán, Oreo, Froot Loops, Pay de Limón.
+- **Sabores:** Vainilla, Chocolate, Mazapán, Oreo, Froot Loops, Pay de Limón y Abuelita (esta última aparece en el Excel de costos, a $12).
 - **Paquetes:** 6 por $60 y 12 por $120, con envío a domicilio incluido.
 - **Empaque:** charola de cartón, papel kraft, listón curling y sello de la casa.
 - **Marca:** "Rico sabor en cada mordida", color rosa pálido, concepto de nostalgia de los 90.
@@ -125,42 +124,86 @@ Cada parte puede pagarse con CoDi, efectivo o tarjeta.
 
 ---
 
-## 5. Costos (estimados con precios reales del libro de costos de LaSal)
+## 5. Costos reales de La Casa de las Conchas
 
-Precios de insumos tomados de `COSTOS_LASAL.xlsx` (25-ene-2026):
+Fuente: `Plantilla Costeo del menu 2021_final.xlsx` (Google Drive, recetas actualizadas el 27-mar-2021). Estos datos son la **semilla de la base de datos**.
 
-| Insumo | Proveedor | Costo |
+### Costos fijos
+
+| Concepto | Valor |
+|---|---|
+| Gastos fijos mensuales | $22,850.00 |
+| Días laborados al mes | 20 |
+| Costo diario de operar | $1,142.50 |
+| Tickets diarios | 20 |
+| Costo por operar por ticket | $57.13 |
+| Costo operativo asignado por concha (ACO) | $2.00 |
+
+Detalle de gastos fijos en el Excel: nómina $12,800 mensual, aguinaldo $6,400 anual y capacitación $35,000 anual, entre otros.
+
+### Insumos (almacén inicial)
+
+| ID | Insumo | Proveedor | Presentación | Costo unitario |
+|---|---|---|---|---|
+| 10 | Harina | Sam's | 10 kg por $98.20 | $9.82 / kg |
+| 11 | Sal | — | 1 kg | $14.00 / kg |
+| 12 | Levadura | — | 450 g por $42.86 | $95.24 / kg |
+| 13 | Huevo | — | 30 piezas por $40.00 | $1.33 / pieza |
+| 14 | Leche | — | 4 L por $35.00 | $8.75 / L |
+| 15 | Vainilla | — | 1.5 L por $230.00 | $153.33 / L |
+| 16 | Azúcar | — | 1 kg | $23.00 / kg |
+| 17 | Mantequilla Nona | — | 1 kg | $58.80 / kg |
+| 18 | Manteca | — | 1 kg | $30.00 / kg |
+| 19 | Mejorante | — | 450 g por $45.00 | $100.00 / kg |
+| 20 | Cereal (Froot Loops) | — | 860 g por $60.36 | $70.19 / kg |
+| 21 | Azúcar glass | — | 500 g por $18.50 | $37.00 / kg |
+| 22 | Manteca vegetal | — | 1 kg | $33.00 / kg |
+| 24 | Cocoa | — | 125 g por $49.50 | $396.00 / kg |
+| 25 | Oreo | — | 1.596 kg por $157.54 | $98.71 / kg |
+| 26 | Chocolate Abuelita | — | 540 g por $69.00 | $127.78 / kg |
+| 27 | Rey Amargo Naranja | — | sin precio | PENDIENTE |
+| 28 | Papel para hornear | — | sin precio | PENDIENTE |
+| 55 | Cacahuate | — | 750 g por $55.50 | $74.00 / kg |
+
+### Sub-recetas
+
+**Concha Base** (lote; costo resultante $55.48 / kg):
+
+| Insumo | Cantidad | Importe |
 |---|---|---|
-| Harina de trigo (costal 44 kg) | Molino Central | $17.20 / kg |
-| Azúcar estándar | Frutería Rosita | $25.80 / kg |
-| Mantequilla entera | Abarrotes Vejarano | $216.00 / kg |
-| Huevo fresco | Frutería Rosita | $45.00 / kg |
-| Leche entera | Sam's | $26.34 / L |
-| Levadura fresca | Abarrotes Vejarano | $57.50 / kg |
-| Sal de Colima | Salineras Cuyutlán | $2.60 / kg |
-| Vainilla Molina | Abarrotes Raúl | $73.30 / L |
-| Mazapán | Buonissimo | $109.00 / L |
-| Chocolate de mesa | Abarrotes Vejarano | $128.57 / kg |
+| Harina | 0.500 kg | $4.91 |
+| Sal | 0.008 kg | $0.11 |
+| Levadura | 0.012 kg | $1.14 |
+| Huevo | 2 piezas | $2.67 |
+| Leche preparada | 0.250 kg | $8.01 |
+| Vainilla | 0.008 L | $1.23 |
+| Azúcar | 0.090 kg | $2.07 |
+| Mantequilla Nona | 0.080 kg | $4.70 |
+| Manteca | 0.030 kg | $0.90 |
+| Mejorante | 0.005 kg | $0.50 |
 
-### Costo estimado de una concha de vainilla (lote de 24 piezas)
+**Coberturas** (costo por kg): Vainilla $30.70 · Chocolate $37.17 · Oreo $51.30 · Mazapán $36.97 (más polvo de mazapán $41.50) · Abuelita $58.57 · Pie de limón PENDIENTE.
 
-| Ingrediente | Cantidad | Costo |
-|---|---|---|
-| Harina (masa + cubierta) | 720 g | $12.38 |
-| Azúcar (masa + cubierta) | 240 g | $6.19 |
-| Mantequilla (masa + cubierta) | 190 g | $41.04 |
-| Huevo | 150 g | $6.75 |
-| Leche | 200 ml | $5.27 |
-| Levadura fresca | 25 g | $1.44 |
-| Sal | 8 g | $0.02 |
-| Vainilla | 5 ml | $0.37 |
-| **Total del lote** | | **$73.46** |
-| **Por concha** | | **$3.06** |
-| Con 10% de merma y gas | | **≈ $3.40** |
+**Armado de una concha:** 50 g de Concha Base + 20 g de cobertura.
 
-**SUPUESTOS (validar con René):** la fórmula del lote es una receta estándar de concha, no la "receta secreta" de la casa. El empaque (charola, kraft, listón y sello) se estima en $8 por paquete. Los sabores con relleno o cubierta especial (Oreo, Froot Loops, Mazapán, Pay de Limón) suman entre $0.50 y $1.50 por pieza.
+### Costo y utilidad por concha (del Excel)
 
-Con precio de $10 por concha (6 × $60), el costo de alimento queda cerca del 34% para vainilla, antes de empaque.
+| Concha | Precio con IVA | Precio sin IVA | Costo insumos (CVU) | Costo operar (ACO) | Costo total | % costo | Utilidad |
+|---|---|---|---|---|---|---|---|
+| Vainilla | $10.00 | $8.62 | $3.39 | $2.00 | $5.39 | 63% | $3.23 |
+| Chocolate | $10.00 | $8.62 | $3.52 | $2.00 | $5.52 | 64% | $3.10 |
+| Oreo | $10.00 | $8.62 | $2.61 | $2.00 | $4.61 | 53% | $4.01 |
+| Mazapán | $10.00 | $8.62 | $3.52 | $2.00 | $5.52 | 64% | $3.10 |
+| Abuelita | $12.00 | $10.34 | $2.61 | $2.00 | $4.61 | 45% | $5.73 |
+
+**Competencia registrada en el Excel:** conchas a $6 y $8.
+
+### Inconsistencias a revisar antes de cargar los datos
+- Oreo y Abuelita aparecen con CVU de $2.61, pero sus coberturas son las más caras ($51.30 y $58.57 / kg). El cálculo correcto debería dar un CVU mayor que el de vainilla. El sistema recalculará el CVU desde la receta.
+- Pie de limón, Rey Amargo Naranja y papel para hornear no tienen costo.
+- Froot Loops aparece como insumo "Cereal", pero no tiene receta de concha propia.
+- El empaque (charola, kraft, listón, sello) no está costeado.
+- Precios de marzo de 2021: conviene actualizarlos con precios de 2026.
 
 ---
 
