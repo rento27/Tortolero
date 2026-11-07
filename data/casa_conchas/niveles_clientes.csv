@@ -1,6 +1,6 @@
 nivel,orden,regla_frecuencia,compras_ultimos_30_dias,descripcion
-Tiburon,1,Casi diario,12 o mas,Cliente que compra casi todos los dias
-Atun,2,Semanal,4 a 11,Compra una o dos veces por semana
-Dorado,3,Quincenal,2 a 3,Compra cada 15 dias aproximadamente
-Sardina,4,Mensual,1,Compra una vez al mes
-Charal,5,Ocasional o nuevo,0 en 30 dias o primera compra,Cliente nuevo o que compra muy de vez en cuando
+De la Casa,1,Casi diario,12 o mas,Ya es de la familia: compra casi todos los dias
+Docena,2,Semanal,4 a 11,Compra una o dos veces por semana
+Media Docena,3,Quincenal,2 a 3,Compra cada 15 dias aproximadamente
+Pancito,4,Mensual,1,Compra una vez al mes
+Probadita,5,Ocasional o nuevo,0 en 30 dias o primera compra,Cliente nuevo o que compra muy de vez en cuando

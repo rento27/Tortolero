@@ -269,9 +269,9 @@ En LaSal el corte de riesgo es de 90 días. **En una panadería se compra más s
 ### Lealtad
 - 1 punto por cada $10 pagados (se registra en `loyalty_ledger` al confirmarse cada parte del pago).
 - 100 puntos = 1 paquete de 6 gratis.
-- Niveles (nombres por definir; propuesta con sabores): **Vainilla** (0–299 pts históricos), **Chocolate** (300–999), **Mazapán** (1,000+).
+- Niveles por frecuencia de compra en los últimos 30 días (ver `data/casa_conchas/niveles_clientes.csv`): **De la Casa** (casi diario), **Docena** (semanal), **Media Docena** (quincenal), **Pancito** (mensual) y **Probadita** (nuevo u ocasional).
 
-**PENDIENTE:** René quiere usar la escala de nombres de Nico (tiburón, atún, etc.). No se encontró en Drive, la MacBook ni el SSD. Falta que René la confirme.
+Los nombres van con la marca y con los paquetes que se venden; los rangos se pueden editar desde configuración.
 
 ---
 

@@ -189,11 +189,11 @@ En el panel del dueño:
 
 ```
 1. Niveles por frecuencia (tabla customer_levels, escala propia del negocio):
-   - Tiburón: 12 o más compras en los últimos 30 días (casi diario).
-   - Atún: 4 a 11 (semanal).
-   - Dorado: 2 a 3 (quincenal).
-   - Sardina: 1 (mensual).
-   - Charal: nuevo u ocasional.
+   - De la Casa: 12 o más compras en los últimos 30 días (casi diario, "ya es de la familia").
+   - Docena: 4 a 11 (semanal).
+   - Media Docena: 2 a 3 (quincenal).
+   - Pancito: 1 (mensual).
+   - Probadita: nuevo u ocasional.
    Calcula el nivel de cada cliente con una función/vista que se recalcule al confirmarse cada pago. Los rangos se editan desde configuración.
 2. RFM: R = días desde la última compra, F = compras en 180 días, M = gasto en 180 días; puntaje 1–5 por quintil. Segmentos: Campeón, Leal, Nuevo, En riesgo (F ≥ 3 y más de 21 días sin comprar), Perdido (más de 60 días).
 3. Lealtad: 1 punto por cada $10 pagados; 100 puntos = paquete de 6 gratis (canjeable en caja).
@@ -226,7 +226,7 @@ En el panel del dueño:
 2. **(0:15–0:40) Pedido con IA:** un cliente escribe en el chat "12 conchas, mitad Oreo y mitad mazapán, para mañana" y el asistente arma el pedido.
 3. **(0:40–1:00) Cuenta dividida con CoDi:** se divide en 2. Dos celulares escanean dos QR de $0.01 y la pantalla pasa de "1 de 2 pagado" a "Pagado".
 4. **(1:00–1:15) Producción:** el pedido aparece en el tablero de producción con la tanda calculada.
-5. **(1:15–1:30) Panel del dueño:** la matriz muestra que la Oreo es "Vaca" (3% de utilidad), la IA recomienda subirle el precio, y un cliente "Tiburón" recibe su mensaje de lealtad.
+5. **(1:15–1:30) Panel del dueño:** la matriz muestra que la Oreo es "Vaca" (3% de utilidad), la IA recomienda subirle el precio, y un cliente nivel "De la Casa" recibe su mensaje de lealtad.
 
 ## Correo de entrega (a hola@aibuilders.lat)
 
