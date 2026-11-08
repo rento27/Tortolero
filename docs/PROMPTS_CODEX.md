@@ -66,7 +66,7 @@ package_items(package_id, cantidad_piezas)  -- paquetes de 6 y 12, sabores a ele
 insumos(id, nombre, proveedor, unidad, costo_unitario, stock_actual, stock_minimo, ubicacion ['secos','refrigerador','empaque'])
 recipes(id, product_id, nombre, rendimiento_g)
 recipe_lines(recipe_id, insumo_id, cantidad, unidad)
-customers(id, nombre, telefono, email, direccion, colonia, consentimiento, marketing_opt_in, primera_compra, ultima_compra, num_compras, gasto_total, puntos, nivel, segmento_rfm)
+customers(id, tipo ['persona','aliada'], nombre, negocio, telefono, email, direccion, colonia, consentimiento, marketing_opt_in, primera_compra, ultima_compra, num_compras, gasto_total, puntos, nivel, segmento_rfm)
 orders(id, customer_id, canal ['mostrador','tienda','asistente'], tipo ['recoger','domicilio'], entrega_programada, direccion, estado ['abierto','en_cobro','pagado','en_produccion','listo','en_camino','entregado','cancelado'], subtotal, descuento, total, creado_en)
 order_items(id, order_id, product_id, sabor, cantidad, precio_unitario, total_linea)
 payment_splits(id, order_id, customer_id, monto, metodo ['codi','efectivo','tarjeta'], estado ['pendiente','pagado','expirado','cancelado'], pey_qr_id, pey_num_ref, pey_transaction_id, qr_payload, expira_en, pagado_en)
@@ -195,6 +195,11 @@ En el panel del dueño:
    - Famosa: 2 a 3 (quincenal).
    - Oldie: 0 a 1 (mensual o cliente nuevo).
    Los nombres vienen de las categorías de la carta de La Casa de las Conchas.
+   Los niveles solo aplican a clientes tipo "persona".
+1b. Tipo de cliente "Las Aliadas" (customers.tipo = 'aliada'): negocios que compran para revender o servir (ej. Chantilly, Vida Café, Restaurante Bambú, Café Río, Los 3 Potrillos; usa nombres ficticios en la demo).
+   - Ficha con nombre del negocio, contacto, dirección y días/horario de entrega.
+   - Pedidos recurrentes: "cada martes y viernes, 24 conchas surtidas" que se generan solos y entran a Producción.
+   - Vista "Las Aliadas" en el CRM con piezas por mes, último pedido y alerta si un negocio deja de pedir más de 14 días.
    Calcula el nivel de cada cliente con una función/vista que se recalcule al confirmarse cada pago. Los rangos se editan desde configuración.
 2. RFM: R = días desde la última compra, F = compras en 180 días, M = gasto en 180 días; puntaje 1–5 por quintil. Segmentos: Campeón, Leal, Nuevo, En riesgo (F ≥ 3 y más de 21 días sin comprar), Perdido (más de 60 días).
 3. Lealtad: 1 punto por cada $10 pagados; 100 puntos = paquete de 6 gratis (canjeable en caja).
