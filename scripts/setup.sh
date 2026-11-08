@@ -8,5 +8,5 @@ if ! command -v ffmpeg >/dev/null; then
 fi
 pip install --break-system-packages -q -r requirements.txt
 
-python3 -c "import moviepy, cv2, pydub, faster_whisper, scenedetect; print('Entorno de video listo')"
+python3 -c "import moviepy, cv2, pydub, faster_whisper, scenedetect, librosa; print('Entorno de video listo')"
 ffmpeg -version | head -1
