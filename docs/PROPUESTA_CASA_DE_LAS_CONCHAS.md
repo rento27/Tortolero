@@ -269,7 +269,7 @@ En LaSal el corte de riesgo es de 90 días. **En una panadería se compra más s
 ### Lealtad
 - 1 punto por cada $10 pagados (se registra en `loyalty_ledger` al confirmarse cada parte del pago).
 - 100 puntos = 1 paquete de 6 gratis.
-- Niveles por frecuencia de compra en los últimos 30 días (ver `data/casa_conchas/niveles_clientes.csv`): **De la Casa** (casi diario), **Docena** (semanal), **Media Docena** (quincenal), **Pancito** (mensual) y **Probadita** (nuevo u ocasional).
+- Niveles por frecuencia de compra en los últimos 30 días (ver `data/casa_conchas/niveles_clientes.csv`), con los nombres de las categorías de la carta: **Luxury** (casi diario), **Fashion** (semanal), **Famosa** (quincenal) y **Oldie** (mensual o nuevo).
 
 Los nombres van con la marca y con los paquetes que se venden; los rangos se pueden editar desde configuración.
 

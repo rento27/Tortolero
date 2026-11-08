@@ -9,7 +9,8 @@ Semilla para la base de datos del sistema. Fuentes revisadas el 7-nov-2026.
 | `cobertura_pie_de_limon.csv` | Receta y costo de la cobertura de Pie de Limón (rinde 220 g) | Receta de René + costos jul 2021 |
 | `costos_fijos.csv` | Gastos fijos mensuales ($28,183.33) | mismo archivo |
 | `tandas_masa.csv` | 17 tandas de masa de concha por número de piezas | Notas de René (pegadas en el chat) |
-| `niveles_clientes.csv` | Niveles de cliente por frecuencia de compra (De la Casa → Probadita) | Escala propia de La Casa de las Conchas |
+| `niveles_clientes.csv` | Niveles de cliente por frecuencia de compra (Luxury → Oldie) | Nombres tomados de las categorías de la carta |
+| `menu_carta.csv` | Carta completa: 36 conchas en 5 categorías (Oldie's, Famosas, Fashion, Luxury, Saladas) | Nota de René con la carta para el local físico (nunca abrió) |
 
 **Decisiones (7-nov-2026):** la tienda vende **solo conchas**. Las hojas "Tío", galletas y chocolate caliente del Excel no entran. Para el hackatón se usan los costos de julio 2021; actualizarlos a 2026 queda pendiente.
 

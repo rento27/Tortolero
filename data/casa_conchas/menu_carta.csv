@@ -1,0 +1,36 @@
+categoria,orden_categoria,producto,descripcion,tipo,costeado
+Las Oldie's,1,Vainilla,Concha clasica de vainilla,dulce,si
+Las Oldie's,1,Chocolate Hershey,Concha de chocolate,dulce,si
+Las Famosas,2,Mazapan,Concha de mazapan,dulce,si
+Las Famosas,2,Oreo,Concha de Oreo,dulce,si
+Las Famosas,2,Chocolate Amargo,Concha de chocolate amargo,dulce,no
+Las Famosas,2,Froot Loops,Concha con cereal Froot Loops,dulce,no
+Las Famosas,2,Cacahuate Garrapinado,Concha de cacahuate garrapinado,dulce,no
+Las Fashion,3,Pie de Limon,Cobertura de galleta Maria y ralladura de limon,dulce,si
+Las Fashion,3,Concha Reyes Magos,Concha de temporada de Reyes,dulce,no
+Las Fashion,3,Concha Sorpresa,Vainilla con huevo Kinder y relleno de colores,dulce,no
+Las Fashion,3,Calabaza Pastel de Larissa,Concha de pastel de calabaza,dulce,no
+Las Fashion,3,Concha Argentina,Rellena de mousse de dulce de leche,dulce,no
+Las Fashion,3,Tocino y Miel,Concha de tocino con miel,dulce,no
+Las Fashion,3,Concha de Avellanas,Rellena de crema de avellanas,dulce,no
+Las Fashion,3,Concha de Cacahuate Garrapinado (Fashion),Version Fashion de cacahuate garrapinado,dulce,no
+Luxury Concha,4,Creme Brulee,Vainilla y canela con trozos de caramelo; rellena de mousse de arroz con leche,dulce,no
+Luxury Concha,4,ChocoMole,Concha de chocolate amargo rellena de mousse de chocomole,dulce,no
+Luxury Concha,4,M&M's con Relleno Arcoiris,Concha de M&M's con relleno arcoiris,dulce,no
+Luxury Concha,4,Concha de Queso Oaxaca,Pan con trozos de queso; rellena de mousse de queso con epazote,dulce,no
+Luxury Concha,4,Mazapan Frutos Rojos,Rellena de mousse de mazapan con trozos de frutos rojos,dulce,no
+Luxury Concha,4,Oreo Queso Crema,Concha Oreo rellena de queso crema dulce,dulce,no
+Luxury Concha,4,Chocolate Hershey Queso Crema,Rellena de queso crema de chocolate,dulce,no
+Luxury Concha,4,Platano Bodacho,Vainilla con platano macho caramelizado y mousse de platano macho,dulce,no
+Luxury Concha,4,ConchaTatin,Manzana caramelizada con relleno de mousse de tarta Tatin,dulce,no
+Luxury Concha,4,Concha de Pinole,Rellena de mousse de pinole,dulce,no
+Saladas,5,CochiConcha,Rellena de cochinita; cebolla con habanero y su verdura,salada,no
+Saladas,5,Concha Italian,Rellena de queso mozzarella; jamon y jalapeno,salada,no
+Saladas,5,FunjiConcha,Rellena de cremini; setas; champinon y portobello,salada,no
+Saladas,5,Concha Veracruz,Rellena de frijoles de mi abuela y queso fresco,salada,no
+Saladas,5,Concha al Pastor,Carne al pastor; cilantro; cebolla caramelizada; mousse de aguacate y cebolla asada,salada,no
+Saladas,5,ConchaAhogada,Carnitas del Prieto; cebolla desflemada y fruta en vinagre,salada,no
+Saladas,5,BarbaConcha,Carnita de barbacoa; cilantro; cebolla y su consome,salada,no
+Saladas,5,La Concha Social,Cobertura de queso; rellena de frijoles puercos,salada,no
+Saladas,5,Grandma's LeiliConcha,Pan no dulce relleno de pollo frito; coleslaw; parmentier de papa y salsa gravy; con elote dulce asado,salada,no
+Saladas,5,ChilaConcha Colimota,Rellena de chilaquiles colimotes,salada,no

@@ -25,7 +25,7 @@ Reglas del proyecto:
 
 Marca: "La Casa de las Conchas", slogan "Rico sabor en cada mordida", color principal rosa pálido, estilo nostalgia de los 90, empaque kraft con listón.
 
-Producto: solo conchas de 85 g (65 g de masa + 20 g de cobertura). Sabores: Vainilla, Chocolate, Mazapán, Oreo, Abuelita y Pie de Limón. Paquetes: 6 conchas por $60 y 12 por $120, con envío a domicilio incluido. La concha Abuelita cuesta $12 suelta.
+Producto: solo conchas de 85 g (65 g de masa + 20 g de cobertura). Para vender hoy están costeadas: Vainilla, Chocolate, Mazapán, Oreo, Abuelita y Pie de Limón. La carta completa está en data/casa_conchas/menu_carta.csv, en 5 categorías: Las Oldie's, Las Famosas, Las Fashion, Luxury Concha y Saladas; los productos sin costear se muestran como "Próximamente". Paquetes: 6 conchas por $60 y 12 por $120, con envío a domicilio incluido. La concha Abuelita cuesta $12 suelta.
 
 Confirma que entendiste en 5 líneas y espera el siguiente prompt.
 ```
@@ -84,7 +84,8 @@ Restricciones obligatorias:
 - webhook_events.transaction_id es UNIQUE.
 
 Crea un script scripts/seed.mjs que cargue los CSV de data/casa_conchas/:
-- productos.csv → products (las 6 conchas) + 2 paquetes (6 por $60, 12 por $120).
+- productos.csv → products (las 6 conchas costeadas) + 2 paquetes (6 por $60, 12 por $120).
+- menu_carta.csv → agrega la columna categoria a products y carga el resto de la carta con activo=false y precio vacío ("Próximamente").
 - insumos.csv → insumos.
 - costos_fijos.csv → fixed_costs.
 - niveles_clientes.csv → customer_levels.
@@ -137,7 +138,7 @@ Pruebas: escribe tests de la lógica de división (centavos, mixto, no exceder e
 
 ```
 Convierte el menú digital en la tienda pública de La Casa de las Conchas (ruta "/"):
-- Catálogo de las 6 conchas y los 2 paquetes, con foto (placeholder si no hay), precio y descripción.
+- Catálogo organizado por categoría (Las Oldie's, Las Famosas, Las Fashion, Luxury Concha, Saladas), con foto (placeholder si no hay), precio y descripción. Los productos activos se pueden comprar; los demás aparecen como "Próximamente".
 - Armado de paquete: el cliente elige los sabores hasta completar 6 o 12.
 - Carrito, datos de entrega (nombre, teléfono, dirección, colonia, fecha y hora), aviso de privacidad y consentimiento (reutiliza el de LaSal OS).
 - Al confirmar, crea el pedido y lleva al cobro con QR CoDi (puede dividir la cuenta igual que en caja).
@@ -189,11 +190,11 @@ En el panel del dueño:
 
 ```
 1. Niveles por frecuencia (tabla customer_levels, escala propia del negocio):
-   - De la Casa: 12 o más compras en los últimos 30 días (casi diario, "ya es de la familia").
-   - Docena: 4 a 11 (semanal).
-   - Media Docena: 2 a 3 (quincenal).
-   - Pancito: 1 (mensual).
-   - Probadita: nuevo u ocasional.
+   - Luxury: 12 o más compras en los últimos 30 días (casi diario).
+   - Fashion: 4 a 11 (semanal).
+   - Famosa: 2 a 3 (quincenal).
+   - Oldie: 0 a 1 (mensual o cliente nuevo).
+   Los nombres vienen de las categorías de la carta de La Casa de las Conchas.
    Calcula el nivel de cada cliente con una función/vista que se recalcule al confirmarse cada pago. Los rangos se editan desde configuración.
 2. RFM: R = días desde la última compra, F = compras en 180 días, M = gasto en 180 días; puntaje 1–5 por quintil. Segmentos: Campeón, Leal, Nuevo, En riesgo (F ≥ 3 y más de 21 días sin comprar), Perdido (más de 60 días).
 3. Lealtad: 1 punto por cada $10 pagados; 100 puntos = paquete de 6 gratis (canjeable en caja).
@@ -226,7 +227,7 @@ En el panel del dueño:
 2. **(0:15–0:40) Pedido con IA:** un cliente escribe en el chat "12 conchas, mitad Oreo y mitad mazapán, para mañana" y el asistente arma el pedido.
 3. **(0:40–1:00) Cuenta dividida con CoDi:** se divide en 2. Dos celulares escanean dos QR de $0.01 y la pantalla pasa de "1 de 2 pagado" a "Pagado".
 4. **(1:00–1:15) Producción:** el pedido aparece en el tablero de producción con la tanda calculada.
-5. **(1:15–1:30) Panel del dueño:** la matriz muestra que la Oreo es "Vaca" (3% de utilidad), la IA recomienda subirle el precio, y un cliente nivel "De la Casa" recibe su mensaje de lealtad.
+5. **(1:15–1:30) Panel del dueño:** la matriz muestra que la Oreo es "Vaca" (3% de utilidad), la IA recomienda subirle el precio, y un cliente nivel "Luxury" recibe su mensaje de lealtad.
 
 ## Correo de entrega (a hola@aibuilders.lat)
 

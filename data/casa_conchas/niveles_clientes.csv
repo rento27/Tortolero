@@ -1,6 +1,5 @@
 nivel,orden,regla_frecuencia,compras_ultimos_30_dias,descripcion
-De la Casa,1,Casi diario,12 o mas,Ya es de la familia: compra casi todos los dias
-Docena,2,Semanal,4 a 11,Compra una o dos veces por semana
-Media Docena,3,Quincenal,2 a 3,Compra cada 15 dias aproximadamente
-Pancito,4,Mensual,1,Compra una vez al mes
-Probadita,5,Ocasional o nuevo,0 en 30 dias o primera compra,Cliente nuevo o que compra muy de vez en cuando
+Luxury,1,Casi diario,12 o mas,El cliente diamante: compra casi todos los dias
+Fashion,2,Semanal,4 a 11,Compra una o dos veces por semana
+Famosa,3,Quincenal,2 a 3,Compra cada 15 dias aproximadamente
+Oldie,4,Mensual o nuevo,0 a 1,Compra una vez al mes o es cliente nuevo
