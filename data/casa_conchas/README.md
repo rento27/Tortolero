@@ -10,7 +10,7 @@ Semilla para la base de datos del sistema. Fuentes revisadas el 7-nov-2026.
 | `costos_fijos.csv` | Gastos fijos mensuales ($28,183.33) | mismo archivo |
 | `tandas_masa.csv` | 17 tandas de masa de concha por número de piezas | Notas de René (pegadas en el chat) |
 | `niveles_clientes.csv` | Niveles de cliente por frecuencia de compra (Luxury → Oldie) | Nombres tomados de las categorías de la carta |
-| `tipos_clientes.csv` | Tipos de cliente: Persona y Las Aliadas (negocios de mayoreo) | Decisión de René (8-nov-2026) |
+| `tipos_clientes.csv` | Tipos de cliente: Persona y Nuestras Alianzas (negocios de mayoreo) | Decisión de René (8-nov-2026) |
 | `menu_carta.csv` | Carta completa: 36 conchas en 5 categorías (Oldie's, Famosas, Fashion, Luxury, Saladas) | Nota de René con la carta para el local físico (nunca abrió) |
 
 **Decisiones (7-nov-2026):** la tienda vende **solo conchas**. Las hojas "Tío", galletas y chocolate caliente del Excel no entran. Para el hackatón se usan los costos de julio 2021; actualizarlos a 2026 queda pendiente.
