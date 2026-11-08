@@ -1,0 +1,21 @@
+# Medios pesados: no se suben al repo
+media/raw/*
+media/music/*
+render/*
+!**/.gitkeep
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.wav
+*.mp3
+*.m4a
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Secretos
+.env

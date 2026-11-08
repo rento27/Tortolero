@@ -1,0 +1,9 @@
+moviepy>=2.1
+opencv-python-headless
+pydub
+audioop-lts; python_version >= "3.13"
+numpy
+pillow
+yt-dlp
+faster-whisper
+scenedetect

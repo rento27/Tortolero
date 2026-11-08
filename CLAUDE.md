@@ -1,8 +1,8 @@
 # CLAUDE.md - AI Assistant Guide for Tortolero
 
-**Last Updated:** 2026-01-18
+**Last Updated:** 2026-11-08
 **Repository:** rento27/Tortolero
-**Status:** 🆕 New Repository - Initial Setup Phase
+**Status:** Video editing workspace
 
 ---
 
@@ -28,10 +28,16 @@
 This repository is in its **initial setup phase**. As of the last update, the repository contains no source code or project files. This document serves as the foundational guide for AI assistants working on this project.
 
 ### Purpose
-_To be defined as the project develops_
+Workspace for video editing (cuts, subtitles, audio, renders).
 
 ### Technology Stack
-_To be defined - will be updated when project structure is established_
+- ffmpeg 6.x (libx264/x265, vp9, aac, opus, mp3, drawtext, subtitles/ass, loudnorm)
+- ImageMagick
+- Python 3.13: moviepy 2.x, opencv-python-headless, pydub (+ audioop-lts), numpy, pillow
+- faster-whisper (transcription / subtitles, CPU int8), scenedetect (scene cuts), yt-dlp
+
+Run `bash scripts/setup.sh` at the start of a session to install/verify everything
+(the cloud container is ephemeral).
 
 ---
 
@@ -40,9 +46,18 @@ _To be defined - will be updated when project structure is established_
 ### Repository Structure
 ```
 Tortolero/
-├── .git/              # Git repository metadata
-└── CLAUDE.md          # This file - AI assistant documentation
+├── media/
+│   ├── raw/           # Source footage (git-ignored)
+│   ├── assets/        # Logos, fonts, overlays (small files, committed)
+│   └── music/         # Music/audio (git-ignored)
+├── proyectos/         # Per-project edit scripts / EDLs
+├── render/            # Final exports (git-ignored)
+├── scripts/setup.sh   # Installs and verifies the video toolchain
+├── requirements.txt
+└── CLAUDE.md
 ```
+
+Media files (mp4, mov, wav, mp3...) are git-ignored; never commit footage.
 
 ### What's Missing (To Be Added)
 - [ ] Project configuration files (package.json, requirements.txt, etc.)
