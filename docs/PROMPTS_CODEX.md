@@ -91,7 +91,7 @@ Crea un script scripts/seed.mjs que cargue los CSV de data/casa_conchas/:
 - niveles_clientes.csv → customer_levels.
 - tandas_masa.csv → úsalo para crear la receta "Masa base" por concha (41.5 g harina, 18.8 g leche, 6.6 g azúcar, 4.7 g mantequilla, 4.7 g manteca, 0.8 g levadura, 0.6 g sal, 0.6 g vainilla, 0.4 g mejorante, 0.1 huevo).
 - cobertura_pie_de_limon.csv → receta "Cobertura Pie de Limón".
-Además genera 40 clientes ficticios y 60 días de ventas de ejemplo (~50 conchas diarias, con más vainilla y chocolate, y algunos clientes que compran casi diario) para que la matriz y los niveles tengan datos.
+Además genera 40 clientes ficticios tipo persona, 5 negocios ficticios tipo aliada con pedidos recurrentes, y 60 días de ventas de ejemplo (~50 conchas diarias, con más vainilla y chocolate, y algunos clientes que compran casi diario) para que la matriz y los niveles tengan datos.
 
 Al terminar: corre la migración y el seed contra mi Supabase y muéstrame el conteo de filas por tabla.
 ```
