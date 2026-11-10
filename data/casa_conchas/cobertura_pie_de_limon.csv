@@ -1,0 +1,7 @@
+insumo,cantidad_g,costo_por_kg,importe,fuente_costo
+Galleta Maria,20,60.00,1.20,ESTIMADO (no esta en el costeo; validar)
+Ralladura de limon,3,10.00,0.03,COSTOS_LASAL 2026 (cascara de limon)
+Azucar glass,100,32.00,3.20,Final_Costeo_2021_Final (jul 2021)
+Manteca vegetal,100,36.00,3.60,Final_Costeo_2021_Final (jul 2021)
+Harina de trigo,100,10.74,1.07,Final_Costeo_2021_Final (jul 2021)
+TOTAL (rinde 220 g de cobertura),323,41.36,9.10,

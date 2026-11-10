@@ -1,0 +1,18 @@
+tanda,piezas,harina_g,mejorante_g,leche_g,sal_g,vainilla_g,levadura_g,huevo_pz,azucar_g,mantequilla_g,manteca_g,nota
+1,,1360,14,680,20,20,27,3,238,152,152,"Sin etiqueta. Harina 1360 + 200 g extra. Por la proporcion equivale a unas 33 piezas"
+2,70,2905,29,1320,40,40,54,7,462,330,330,"Etiqueta inferida (Para 70)"
+3,76,3154,31,1433,43,43,59,7.5,501,358,358,"Etiqueta inferida (Para 76)"
+4,10,415,4,188,6,6,8,1,66,47,47,
+5,12,498,5,226,8,8,10,1,80,56,56,
+6,5,208,2,94,3,3,4,0.5,33,23.5,23.5,"Huevo 0.5 o 1"
+7,10,332,3,150,5,5,6.4,1,53,37,37,"Nota original: Para 10** 715 g, 28 de 25 g (conchas mini). Por la proporcion de harina son 8 piezas normales"
+8,25,1038,10,470,15,15,20,2.5,165,118,118,
+9,26,1080,10,489,16,16,20,2.5,172,122,122,
+10,30,1245,12,564,18,18,24,3,198,141,141,"Etiqueta inferida (Para 30)"
+11,40,1660,12,752,24,24,32,4,264,188,188,"Mejorante 12 g (por proporcion deberia ser 16 g)"
+12,35,1453,14,658,21,21,28,3.5,231,165,165,
+13,45,1868,18,846,27,27,36,4.5,297,212,212,
+14,52,2158,21,978,32,32,41,5,343,245,245,
+15,60,2490,24,1131,34,34,46,6,396,283,218,"Manteca 218 g (por proporcion deberia ser 283 g)"
+16,65,2697,26,1225,36,36,50,6.5,430,306,306,
+17,85,2650,26,1234,36,36,48,6,431,308,308,"Por la proporcion de harina equivale a unas 64 piezas normales; posiblemente piezas mas chicas"

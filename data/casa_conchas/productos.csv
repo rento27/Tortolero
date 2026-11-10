@@ -1,0 +1,7 @@
+producto,sabor,peso_g,masa_base_g,cobertura_g,precio_con_iva,precio_sin_iva,costo_insumos_cvu,costo_operar_aco,costo_total_cu,utilidad_mxn,utilidad_pct,fuente
+Concha Vainilla,Vainilla,85,65,20,10.00,8.62,3.35,3.00,6.35,2.27,26%,Final_Costeo_2021_Final (jul 2021)
+Concha Chocolate Hershey,Chocolate Hershey,65,,,10.00,8.62,3.48,3.00,6.48,2.14,25%,Final_Costeo_2021_Final (jul 2021)
+Concha Oreo,Oreo,85,,,10.00,8.62,5.40,3.00,8.40,0.22,3%,Final_Costeo_2021_Final (jul 2021)
+Concha Mazapan,Mazapan,85,,,10.00,8.62,4.40,3.00,7.40,1.22,14%,Final_Costeo_2021_Final (jul 2021)
+Concha Abuelita,Abuelita,85,,,12.00,10.34,4.65,3.00,7.65,2.69,26%,Final_Costeo_2021_Final (jul 2021)
+Concha Pie de Limon,Pie de Limon,85,65,20,10.00,8.62,3.09,3.00,6.09,2.53,29%,Calculado: masa base jul 2021 + cobertura de pie de limon (receta de Rene)
