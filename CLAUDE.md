@@ -1,6 +1,6 @@
 # CLAUDE.md - AI Assistant Guide for Tortolero
 
-**Last Updated:** 2026-01-18
+**Last Updated:** 2026-11-10
 **Repository:** rento27/Tortolero
 **Status:** 🆕 New Repository - Initial Setup Phase
 
@@ -247,6 +247,7 @@ EOF
 
 ### Communication Style
 
+- ✅ **Idioma: responde SIEMPRE en español** (mensajes al usuario, resúmenes y explicaciones), salvo que el usuario pida otro idioma explícitamente
 - ❌ No emojis unless explicitly requested
 - ❌ No over-the-top validation ("You're absolutely right!")
 - ❌ No time estimates or timelines
