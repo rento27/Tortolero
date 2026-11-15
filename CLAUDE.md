@@ -46,6 +46,10 @@ Tortolero/
 │   ├── paths.ts       # Politica de rutas permitidas/bloqueadas
 │   ├── files.ts       # Lectura, escritura, edicion y busqueda
 │   ├── processes.ts   # Procesos de shell
+│   ├── http.ts        # Transporte HTTP sin estado con token (modo remoto)
+│   ├── token.ts       # Token de 256 bits en ~/.tortolero/token
+│   ├── tunnel.ts      # Quick Tunnel gratuito de cloudflared
+│   ├── remote.ts      # Arranque del modo remoto (npm run remote)
 │   └── test/          # Pruebas contra el servidor real por MCP
 ├── README.md
 ├── package.json
@@ -54,7 +58,8 @@ Tortolero/
 
 ### What's Missing (To Be Added)
 - [ ] CI/CD configuration
-- [ ] Transporte remoto con autenticacion (para usarlo desde sesiones en la nube)
+- [ ] Verificar el modo remoto de punta a punta con cloudflared y un conector real de claude.ai (solo probado con curl y cliente MCP en loopback)
+- [ ] Tunel con nombre para URL fija
 - [ ] Procesos con TTY (para REPL interactivos)
 
 ---
