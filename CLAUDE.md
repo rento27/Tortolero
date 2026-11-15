@@ -1,8 +1,8 @@
 # CLAUDE.md - AI Assistant Guide for Tortolero
 
-**Last Updated:** 2026-11-10
+**Last Updated:** 2026-11-15
 **Repository:** rento27/Tortolero
-**Status:** 🆕 New Repository - Initial Setup Phase
+**Status:** Primera version de tortolero-commander (servidor MCP local)
 
 ---
 
@@ -25,13 +25,13 @@
 **Tortolero**
 
 ### Current Status
-This repository is in its **initial setup phase**. As of the last update, the repository contains no source code or project files. This document serves as the foundational guide for AI assistants working on this project.
+Contiene `tortolero-commander`, un servidor MCP local (stdio) con herramientas de archivos, busqueda y terminal. Reemplaza el uso de Desktop Commander remoto para no depender de creditos.
 
 ### Purpose
-_To be defined as the project develops_
+Dar a Claude acceso a archivos y terminal de la computadora del usuario, localmente y sin servicios externos. Ver `README.md` para herramientas, instalacion y notas de seguridad.
 
 ### Technology Stack
-_To be defined - will be updated when project structure is established_
+TypeScript (ESM, `NodeNext`), Node.js >= 20, `@modelcontextprotocol/sdk`, `zod`. Pruebas con `node:test`.
 
 ---
 
@@ -40,19 +40,22 @@ _To be defined - will be updated when project structure is established_
 ### Repository Structure
 ```
 Tortolero/
-├── .git/              # Git repository metadata
+├── src/
+│   ├── index.ts       # Arranque por stdio
+│   ├── server.ts      # Registro de herramientas MCP
+│   ├── paths.ts       # Politica de rutas permitidas/bloqueadas
+│   ├── files.ts       # Lectura, escritura, edicion y busqueda
+│   ├── processes.ts   # Procesos de shell
+│   └── test/          # Pruebas contra el servidor real por MCP
+├── README.md
+├── package.json
 └── CLAUDE.md          # This file - AI assistant documentation
 ```
 
 ### What's Missing (To Be Added)
-- [ ] Project configuration files (package.json, requirements.txt, etc.)
-- [ ] Source code directories
-- [ ] README.md with user-facing documentation
-- [ ] .gitignore file
 - [ ] CI/CD configuration
-- [ ] Testing framework setup
-- [ ] Build/deployment scripts
-- [ ] Contributing guidelines
+- [ ] Transporte remoto con autenticacion (para usarlo desde sesiones en la nube)
+- [ ] Procesos con TTY (para REPL interactivos)
 
 ---
 
@@ -273,11 +276,16 @@ _To be added when project type is determined_
 
 ### Running Tests
 
-_To be added when testing framework is set up_
+```bash
+npm test
+```
 
 ### Building the Project
 
-_To be added when build configuration is established_
+```bash
+npm install
+npm run build
+```
 
 ### Deploying
 
